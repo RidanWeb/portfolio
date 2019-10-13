@@ -1,0 +1,19 @@
+<IfModule mod_rewrite.c>
+Options +FollowSymLinks
+RewriteEngine on
+RewriteBase /updatecoreo
+RewriteRule ^.*[-](\d+)/$ index\.php?id=$1&%{QUERY_STRING} [L]
+RewriteRule ^.*[-](\d+)-.*/$ index\.php?id=$1&%{QUERY_STRING} [L]
+RewriteRule ^.*/(.*)$ index\.php?key=$1&%{QUERY_STRING} [L]
+RewriteRule ^.*[-/]o(\d+)-.*$ index\.php?id=$1&%{QUERY_STRING} [L]
+RewriteRule ^o(\d+)-.*$ index\.php?id=$1&%{QUERY_STRING} [L]
+RewriteRule ^s(\d+)[-/].*[-/]o(\d+)-.*$ index\.php?id=$1-$2&%{QUERY_STRING} [L]
+RewriteRule ^s(\d+)[-/]o(\d+)[-/].*$ index\.php?id=$1-$2&%{QUERY_STRING} [L]
+RewriteRule ^o(\d+)[-/].*[-/]s(\d+)[-/].*$ index\.php?id=$2-$1&%{QUERY_STRING} [L]
+RewriteRule ^o(\d+)[-/]s(\d+)[-/].*$ index\.php?id=$2-$1&%{QUERY_STRING} [L]
+RewriteRule ^.*[-/]o(\d+)[-/]s(\d+)[-/].*$ index\.php?id=$2-$1&%{QUERY_STRING} [L]
+RewriteRule ^.*[-/]o(\d+)[-/].*[-/]s(\d+)[-/].*$ index\.php?id=$2-$1&%{QUERY_STRING} [L]
+RewriteRule ^.*[-/]s(\d+)[-/].*[-/]o(\d+)[-/].*$ index\.php?id=$1-$2&%{QUERY_STRING} [L]
+RewriteRule ^.*[-/]s(\d+)[-/]o(\d+)[-/].*$ index\.php?id=$1-$2&%{QUERY_STRING} [L]
+
+</IfModule>
